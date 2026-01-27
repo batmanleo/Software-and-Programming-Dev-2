@@ -32,7 +32,7 @@ public static void main(String[] args) throws IOException {
                 filemaker = new FileWriter("student.txt");
 
         //this writes to the file
-        filemaker.append(firstname+" "+lastname+"\n");
+        filemaker.append(firstname+"\n"+lastname+"\n");
 
         filemaker.append(school+"\n"+schoolyear);
 
