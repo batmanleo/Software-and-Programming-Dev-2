@@ -8,6 +8,8 @@ import java.util.Scanner;
 public class cardgamewithinput {
 public static void main(String[] args) {
     // this sets up all of the variables
+    int tempNumber;
+    int temperNumber;
     Card tempCard;
     Cardplayer tempPlayer;
     Deck deck;
@@ -48,15 +50,51 @@ public static void main(String[] args) {
     for (int i = 0; i < numberOfPlayers; i++) {
            System.out.println("player"+" "+(i+1)+"'s hand is:");       
             System.out.println(playerList.get(i).printhand());
+            System.out.println("do you want to discard any cards?   Y/N");
+           
+            input = keyboard.nextLine();  
+            if (input.contains("y")||input.contains("Y")){
+                System.out.println(playerList.get(i).printhand());
+                System.out.println("how many cards do you want to discard?");
+                try {
+                        input = keyboard.nextLine();
+                        tempNumber = Integer.parseInt(input.trim());
+                    } catch (Exception e) {
+                        System.out.println("please input a number");
+                        input = keyboard.nextLine();
+                        tempNumber = Integer.parseInt(input.trim());
+                    }
+                    System.out.println(playerList.get(i).printhand());
+                    for (int j = 0; j < tempNumber; j++) {
+                    System.out.println("whitch card do you want to discard?");
+                    try {
+                            input = keyboard.nextLine();
+                            temperNumber = Integer.parseInt(input.trim());
+                        } catch (Exception e) {
+                            System.out.println("please input a number");
+                            input = keyboard.nextLine();
+                            temperNumber = Integer.parseInt(input.trim());
+                        }
+                        playerList.get(i).replacecard(temperNumber-1,deck.draw());
+                        //playerList.get(i).addcard(deck.draw());
+                        }
+
+            
+            
             System.out.println("Score: " + playerList.get(i).scorePoker());
             System.out.println(""); 
         }
 
     //this compares the score of every player's hand to each other and tells who won
-
+    for (i = 0; i < numberOfPlayers; i++) {
+           System.out.println("player"+" "+(i+1)+"'s hand is:");       
+            System.out.println(playerList.get(i).printhand()); 
+    }
+        }
     Collections.sort(playerList);
     System.out.println(playerList.get(0).name+" Wins!"+" With a score of "+playerList.get(0).scorePoker());
 
 
     }
 }
+

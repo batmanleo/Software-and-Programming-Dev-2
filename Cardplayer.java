@@ -20,6 +20,13 @@ public Cardplayer(String name){
 public void addcard(Card card){
     hand.add(card);
 }
+public void discardcard(int cardnumber){
+    hand.remove(cardnumber);
+}
+public void replacecard(int cardnumber,Card newcard){
+    hand.remove(cardnumber);
+    hand.add(cardnumber, newcard);
+}
         //this is how it scores a high card
 public void checkHighcard(){
     Collections.sort(hand);
