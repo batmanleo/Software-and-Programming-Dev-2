@@ -55,7 +55,7 @@ public static void main(String[] args) {
     //this compares the score of every player's hand to each other and tells who won
 
     Collections.sort(playerList);
-    System.out.println(playerList.get(1).name+" Wins!");
+    System.out.println(playerList.get(0).name+" Wins!"+" With a score of "+playerList.get(0).scorePoker());
 
 
     }
