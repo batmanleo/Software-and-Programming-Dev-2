@@ -1,18 +1,22 @@
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Scanner;
 
-//this program was written by leo
+//this program was written by Leo
 
 public class cardgamewithinput {
 public static void main(String[] args) {
+    // this sets up all of the variables
     Card tempCard;
     Cardplayer tempPlayer;
     Deck deck;
     String input;
     String playerName;
-    ArrayList<Cardplayer> playerList = new ArrayList<Cardplayer>();
     int numberOfPlayers = 0;
+    //this sets up the arraylist with all of the players in it
+    ArrayList<Cardplayer> playerList = new ArrayList<Cardplayer>();
+    //this sets up keyboard input
     Scanner keyboard = new Scanner(System.in);
     while (numberOfPlayers == 0){
     System.out.println("How many players?");
@@ -42,7 +46,7 @@ public static void main(String[] args) {
        }
     //this prints each players hand and what score they got
     for (int i = 0; i < numberOfPlayers; i++) {
-           System.out.println("player"+(i+1)+"'s hand is:");       
+           System.out.println("player"+" "+(i+1)+"'s hand is:");       
             System.out.println(playerList.get(i).printhand());
             System.out.println("Score: " + playerList.get(i).scorePoker());
             System.out.println(""); 
@@ -50,11 +54,9 @@ public static void main(String[] args) {
 
     //this compares the score of every player's hand to each other and tells who won
 
-
-   
-    playerList.sort();
-
+    Collections.sort(playerList);
+    System.out.println(playerList.get(1).name+" Wins!");
 
 
-   }
+    }
 }
