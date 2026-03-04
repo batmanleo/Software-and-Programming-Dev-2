@@ -107,6 +107,6 @@ return printinghand;
 
 public int compareTo(Cardplayer o){
      
-    return this.scorePoker()-o.scorePoker();}  
+    return o.scorePoker()-this.scorePoker();}  
 
 }
