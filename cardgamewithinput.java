@@ -81,16 +81,19 @@ public static void main(String[] args) {
 
             
             
-            System.out.println("Score: " + playerList.get(i).scorePoker());
-            System.out.println(""); 
+
         }
 
     //this compares the score of every player's hand to each other and tells who won
-    for (i = 0; i < numberOfPlayers; i++) {
-           System.out.println("player"+" "+(i+1)+"'s hand is:");       
-            System.out.println(playerList.get(i).printhand()); 
+
     }
-        }
+        
+    for (int i = 0; i < numberOfPlayers; i++) {
+           System.out.println("player"+" "+(i+1)+"'s hand is:");       
+            System.out.println(playerList.get(i).printhand());
+            System.out.println("Score: " + playerList.get(i).scorePoker());
+            System.out.println("");  }
+
     Collections.sort(playerList);
     System.out.println(playerList.get(0).name+" Wins!"+" With a score of "+playerList.get(0).scorePoker());
 
