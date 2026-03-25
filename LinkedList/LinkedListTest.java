@@ -49,15 +49,28 @@ public class LinkedListTest {
  
     //removes a node and returns the object that was stored in the node.  Changes the previous node and next node to link to each other.
  
-    public StudentObject removeNode(Node current){
+     public StudentObject removeNode(Node current){
       if (debug){
         System.out.println("removeNode");
       }
+      if (current==head){
+        current.next.setPrevious(current.previous);
+        head=current.next;
+        return current.data;  
+      } else if (current==tail){  
+        current.previous.setNext(current.next);
+        tail=current.previous;  
+      }
+
           current.next.setPrevious(current.previous);
           current.previous.setNext(current.next);
           return current.data;
      }
 
+
+public StudentObject removeHead(){
+   return removeNode(head);   }
+   
 
 public void push(StudentObject data)
 {
