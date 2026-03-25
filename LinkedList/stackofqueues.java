@@ -16,14 +16,14 @@ Storage.addNode(new StudentObject("Student "+i,"address",""+i));
 
 
 System.out.println("Student 1 gets in line to pay for the new game");
-Queue.enQueue(Storage.getHead());
-Queue.enQueue(Storage.getHead());
+Queue.enQueue(Storage.removeHead());
+Queue.enQueue(Storage.removeHead());
 System.out.println("Two students enter the queue");
 
 System.out.println(Queue.deQueue()+" Checked out");
 
-Queue.enQueue(Storage.getHead());
-Queue.enQueue(Storage.getHead());
+Queue.enQueue(Storage.removeHead());
+Queue.enQueue(Storage.removeHead());
 System.out.println("Two more students enter the queue");
 
 System.out.println(Queue.deQueue()+" Checked out");

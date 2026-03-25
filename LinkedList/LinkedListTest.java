@@ -2,8 +2,8 @@
 //sample linked list for use by my students to create their own linked list.  This is not a complete implementation, but it should be enough to get you started.  You will need to add some methods to this class, and you will need to create a Node class and a StudentObject class.  The Node class should have a data field that stores a StudentObject, and a next field that points to the next node in the list.  The StudentObject class should have
 
 public class LinkedListTest {
-  Boolean debug=true;
-  int debugLevel=3;// set to zero for no debuging, and 4 for max debuging
+  Boolean debug=false;
+  int debugLevel=0;// set to zero for no debuging, and 4 for max debuging
 
     private Node head;
     private Node tail;
