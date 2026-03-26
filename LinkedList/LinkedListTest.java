@@ -70,6 +70,29 @@ public class LinkedListTest {
 
 public StudentObject removeHead(){
    return removeNode(head);   }
+
+public void addHead(StudentObject data){
+      if (debug){
+        System.out.println("adding a node");
+      }
+    Node current= new Node(data, null, null );
+        if (head==null){ // if there are no nodes in the list, set this node to the head and tail.
+
+            head=current; 
+            tail=current;
+            return;
+        }else{
+
+          head.previous=current;
+          current.next=head;
+          head=current;
+
+          //tail.next=current;// set the current tail.next to be the new node.
+          //current.previous=tail;// set the new tails, previous to the old tail
+          //tail=current;// replace tail with the new node.
+        }
+     }
+
    
 
 public void push(StudentObject data)
