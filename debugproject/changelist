@@ -1,0 +1,13 @@
+// error.java 
+// I changed public class Main to public class error
+// added public static void main(String[] args) {
+// fixed capitalization errors such as For to for, Int to int, and : to ;
+// if (i==0) needed i so I put it in the for loop
+// fixed System.out.printlm to System.out.println
+// changed 2 instances of System.out.print to System.out.println  
+
+// HelloWorld.java 
+// added ; and turned : into ;
+
+// HelloWorldBad.java
+// fixed if (i=0) to if (i==0) 
