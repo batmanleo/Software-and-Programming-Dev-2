@@ -60,6 +60,7 @@ public class LinkedListTest {
       } else if (current==tail){  
         current.previous.setNext(current.next);
         tail=current.previous;  
+        return current.data;
       }
 
           current.next.setPrevious(current.previous);
