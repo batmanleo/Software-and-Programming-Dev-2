@@ -1,4 +1,3 @@
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Scanner;
@@ -31,15 +30,11 @@ public static void main(String[] args) {
     }
     for (int i = 0; i < numberOfPlayers; i++) {
     System.err.println("Player"+(i+1)+"'s name");
-
     playerList.add(new Cardplayer(keyboard.nextLine()));   
     }
-    
     //this makes the deck and players and shuffles the deck
        deck = new Deck();
        deck.shuffle();
-       
-    
     //this draws the cards for each player
        for(int x=0; x<5; x++){
         for (int i = 0; i < numberOfPlayers; i++) {
@@ -51,7 +46,6 @@ public static void main(String[] args) {
            System.out.println("player"+" "+(i+1)+"'s hand is:");       
             System.out.println(playerList.get(i).printhand());
             System.out.println("do you want to discard any cards?   Y/N");
-           
             input = keyboard.nextLine();  
             if (input.contains("y")||input.contains("Y")){
                 System.out.println(playerList.get(i).printhand());
@@ -76,18 +70,10 @@ public static void main(String[] args) {
                             temperNumber = Integer.parseInt(input.trim());
                         }
                         playerList.get(i).replacecard(temperNumber-1,deck.draw());
-                        //playerList.get(i).addcard(deck.draw());
-                        }
-
-            
-            
-
+                    }
         }
-
     //this compares the score of every player's hand to each other and tells who won
-
-    }
-        
+    } 
     for (int i = 0; i < numberOfPlayers; i++) {
            System.out.println("player"+" "+(i+1)+"'s hand is:");       
             System.out.println(playerList.get(i).printhand());
@@ -95,9 +81,6 @@ public static void main(String[] args) {
             System.out.println("");  }
 
     Collections.sort(playerList);
-    System.out.println(playerList.get(0).name+" Wins!"+" With a score of "+playerList.get(0).scorePoker());
-
-
+    System.out.println(playerList.get(0).name+" Wins!"+" With a score of "+playerList.get(0).handValue);
     }
 }
-

@@ -1,5 +1,14 @@
 //this program was written by leo
-
+// the score should be highcard at 100 + card value
+// pair at 200 + card value
+// two pair at 300 + card value of both pairs
+// three of a kind at 400 + card value
+// straight at 500 + highest card value
+// flush at 600 + highest card value
+// fullhouse at 700 + three of a kind value
+// four of a kind at 800 + card value
+// straight flush at 900 + highest card value
+// royal flush at 1000 
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -8,7 +17,7 @@ String name;
 ArrayList<Card> hand;
 int handValue = 0;
 String handName;
-boolean debug = false;
+boolean debug = true;
 
 public Cardplayer(){
     hand=new ArrayList<Card>();
@@ -71,6 +80,7 @@ if (debug){
             System.out.println("found straight");}
         handName = "straight";
         handValue = 400 + hand.get(4).number;
+        
         }
 }
         //this is how it scores a pair
@@ -83,13 +93,83 @@ public void checkPair(){
             System.out.println("found pair");}
         handName = "pair";
         handValue = 200 + hand.get(x).number + hand.get(x+1).number;
-    }  
 
-        //there might be an if statement here later 
+         
+            for (int i = x+2; i < 4; i++) {
+                if (hand.get(i).number == hand.get(i+1).number){
+                    if (debug){
+                    System.out.println("found two pair");}
+                    handName = "twopair";
+                    handValue = 300 + hand.get(x).number + hand.get(i).number + hand.get(x+1).number + hand.get(i+1).number;
+                    // this does not fully work because it is possible to get a tie with different cards
+                }
+            }
+
+         if (handName == "twopair"){
+            break;
+         }  
+            
+
+    } 
+     }
+     
+     
+    }
+ 
+    public void checkFourofAkind(){
+        Collections.sort(hand);
+            if (hand.get(0).number == hand.get(1).number & hand.get(1).number == hand.get(2).number & hand.get(2).number == hand.get(3).number){
+        if (debug){
+            System.out.println("found four of a kind");}
+            handName = "four-of-a-kind";
+            handValue = 800 + hand.get(0).number + hand.get(1).number + hand.get(2).number + hand.get(3).number;
+        
+        }
+        if (hand.get(1).number == hand.get(2).number & hand.get(2).number == hand.get(3).number & hand.get(3).number == hand.get(4).number){
+        if (debug){
+            System.out.println("found four of a kind");}
+            handName = "four-of-a-kind";
+            handValue = 800 + hand.get(1).number + hand.get(2).number + hand.get(3).number + hand.get(4).number;
+        
+        }
+        
+    }
+     
+ public void checkThreeOfaKind(){
+        Collections.sort(hand);
+        for (int x = 0; x < 3; x++) {
+            if (hand.get(x).number == hand.get(x+1).number & hand.get(x+1).number == hand.get(x+2).number){
+        if (debug){
+            System.out.println("found three of a kind");}
+            handName = "three-of-a-kind";
+            handValue = 400 + hand.get(x).number + hand.get(x+1).number + hand.get(x+2).number;
+        }
+
+if (x == 0 & handName == "three-of-a-kind"){
+if (hand.get(3).number == hand.get(4).number){
+    System.out.println("found fullhouse");}
+            handName = "fullhouse";
+            handValue = 700 + hand.get(1).number + hand.get(2).number + hand.get(3).number + hand.get(4).number + hand.get(5).number;
+}
+if (x == 2 & handName == "three-of-a-kind"){
+if (hand.get(0).number == hand.get(1).number){
+    System.out.println("found fullhouse");}
+            handName = "fullhouse";
+            handValue = 700 + hand.get(1).number + hand.get(2).number + hand.get(3).number + hand.get(4).number + hand.get(5).number;
+}
+}
 
     }
 
-}
+
+
+        
+
+        //there might be an if statement here later 
+
+    
+
+
 
         //this is how it scores in total
         //it has to check lowest to highest
@@ -114,6 +194,6 @@ return printinghand;
 
 public int compareTo(Cardplayer o){
      
-    return o.scorePoker()-this.scorePoker();}  
+    return o.handValue-this.handValue;}  
 
 }
