@@ -1,4 +1,4 @@
-//this program was written by leo
+//this program was written by Leo
 // the score should be highcard at 100 + card value
 // pair at 200 + card value
 // two pair at 300 + card value of both pairs
