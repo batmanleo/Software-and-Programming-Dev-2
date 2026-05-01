@@ -51,7 +51,7 @@ public void checkFlush(){
         if (debug){
             System.out.println("found flush");}
         handName = "flush";
-        handValue = 500 + hand.get(4).number;
+        handValue = 600 + hand.get(4).number;
         if (hand.get(0).number == hand.get(1).number - 1 &
         hand.get(0).number == hand.get(2).number - 2 &
         hand.get(0).number == hand.get(3).number - 3 &
@@ -79,7 +79,7 @@ if (hand.get(0).number == hand.get(1).number - 1 &
 if (debug){
             System.out.println("found straight");}
         handName = "straight";
-        handValue = 400 + hand.get(4).number;
+        handValue = 500 + hand.get(4).number;
         
         }
 }
