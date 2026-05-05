@@ -1,4 +1,4 @@
-// -this program was written by Leo
+// this program was written by Leo
 // the score should be highcard at 100 + card value
 // pair at 200 + card value
 // two pair at 300 + card value of both pairs
@@ -142,20 +142,26 @@ public void checkPair(){
             System.out.println("found three of a kind");}
             handName = "three-of-a-kind";
             handValue = 400 + hand.get(x).number + hand.get(x+1).number + hand.get(x+2).number;
-        }
 
-if (x == 0 & handName == "three-of-a-kind"){
+            if (x == 0 & handName == "three-of-a-kind"){
 if (hand.get(3).number == hand.get(4).number){
-    System.out.println("found fullhouse");}
+    System.out.println("found fullhouse");
             handName = "fullhouse";
-            handValue = 700 + hand.get(1).number + hand.get(2).number + hand.get(3).number + hand.get(4).number + hand.get(5).number;
+            handValue = 700 + hand.get(0).number + hand.get(1).number + hand.get(2).number + hand.get(3).number + hand.get(4).number;
+        }
+           
 }
 if (x == 2 & handName == "three-of-a-kind"){
 if (hand.get(0).number == hand.get(1).number){
-    System.out.println("found fullhouse");}
+    System.out.println("found fullhouse");
             handName = "fullhouse";
-            handValue = 700 + hand.get(1).number + hand.get(2).number + hand.get(3).number + hand.get(4).number + hand.get(5).number;
+            handValue = 700 + hand.get(0).number + hand.get(1).number + hand.get(2).number + hand.get(3).number + hand.get(4).number;
+        }
 }
+
+        }
+
+
 }
 
     }
@@ -168,6 +174,8 @@ public int scorePoker(){
     Collections.sort(hand);
     checkHighcard();
     checkPair();
+    checkThreeOfaKind();
+    checkFourofAkind();
     checkStraight();
     checkFlush();
     return handValue;
