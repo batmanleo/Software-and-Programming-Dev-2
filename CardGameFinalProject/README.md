@@ -8,4 +8,4 @@ king of hearts \
 6 of dimonds \
 jack of clubs \
 king of spades \
-6 of clubs \
+6 of clubs 
